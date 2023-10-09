@@ -22,7 +22,7 @@ public class PowerupBehavior : MonoBehaviour
         RotatingPowerups();
     }
 
-    //objectpooling?
+    //objectpooling on powerups?
     private void OnTriggerEnter(Collider other)
     {
         Powerup();

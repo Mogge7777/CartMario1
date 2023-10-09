@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private float acceleration = 30, turnSpeed;
     private Vector2 movementVector;
+    private Vector3 movement = Vector3.zero;
 
     void Start()
     {
@@ -30,13 +32,12 @@ public class PlayerController : MonoBehaviour
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
-    void FixedUpdate()
+        
+       void FixedUpdate()
     {
-
-        Vector3 movement = new Vector3(0, 0f, movementY);
-        rb.AddRelativeForce(movement * acceleration);
-        CarRotation();
-
+            Vector3 movement = new Vector3(0, 0f, movementY);
+            rb.AddRelativeForce(movement * acceleration);
+            CarRotation();
     }
 
     void CarRotation()
